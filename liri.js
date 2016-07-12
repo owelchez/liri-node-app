@@ -52,20 +52,22 @@ Make sure you append each command you run to the log.txt file.
 
 Do not overwrite your file each time you run a command.*/
 
-var request = require('request');
+var request = require('./node_modules/request');
 console.log(request);
 
 var myKeys = require('./keys.js').twitterKeys;
 
-var userName = process.argv[2];
-
-var commandName = process.argv[2];
 
 
+var queryURL = "https://api.twitter.com/1.1/search/tweets.json?q=%23freebandnames&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4";
+//"https://api.twitter.com/1.1/statuses/mentions_timeline.json?20";
 
-
-
-
+$.ajax({
+	url: queryURL, 
+	method: "GET"
+}).done(function(response){
+	console.log(response);
+});
 
 
 
