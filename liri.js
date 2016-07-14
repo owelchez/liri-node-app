@@ -52,26 +52,29 @@ Make sure you append each command you run to the log.txt file.
 
 Do not overwrite your file each time you run a command.*/
 
+//my-tweets
 
-var request = require('request');
+var action = process.argv[2];
 
-var firstArg = process.argv[2];
+if(action === 'my-tweets'){
 
-var secondArg = process.argv[3];
-
-var queryURL = "https://api.twitter.com/1.1/statuses/mentions_timeline.json?20";
-
-$.ajax({
-	url: queryURL, 
-	method: "GET"
-}).done(function(response){
-	console.log(response);
+var Twitter = require('twitter');
+ 
+var client = new Twitter({
+  consumer_key: 'HmjS9pB8vwmb4IGurZHz6VgCD',
+  consumer_secret: 'LurEfY85cVG8ooKQmbST13N2snLePAouX0w2XSwuSmcRBHJV0A',
+  access_token_key: '2881919943-E1vKtRkprCb90XNTsIJKpk2wSVBAsKHxIgGhKs0',
+  access_token_secret: 'JEG0ZdjqCjSroRepVsdj1gn8xsKmqUckUKSG2Nc21e271'
 });
-
-
-
-
-
+ 
+var params =	{screen_name: 'zerox504',
+				 text: 'text'};
+client.get('statuses/user_timeline', params, function(error, tweets, response){
+  if (!error) {
+    console.log(tweets);
+  }
+});
+}
 
 
 
