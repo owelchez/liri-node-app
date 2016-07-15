@@ -1,8 +1,4 @@
-/*Make it so liri.js can take in one of the following commands:
-
-my-tweets
-
-spotify-this-song
+/*spotify-this-song
 
 movie-this
 
@@ -71,8 +67,13 @@ var params =	{screen_name: 'zerox504',
 				 text: 'text'};
 client.get('statuses/user_timeline', params, function(error, tweets, response){
   if (!error) {
+  	var tweetsLength = tweets.length;
 
-    console.log(tweets);
+  	for(var index = 0; index < tweetsLength; index++){
+  		var timeStamp = tweets[index].created_at;
+  		var tweety = tweets[index].text;
+  		console.log(timeStamp + " " + tweety + "\n");
+  	}
   }
 });
 }
