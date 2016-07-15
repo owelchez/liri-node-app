@@ -68,19 +68,12 @@ var client = new Twitter({
 });
  
 var params =	{screen_name: 'zerox504',
-				count: 20,
 				 text: 'text'};
 client.get('statuses/user_timeline', params, function(error, tweets, response){
   if (!error) {
+
     console.log(tweets);
   }
-
-/*client.post('statuses/update', {status: 'Happy Thursday!'}, function(error, tweet, response) {
-  if (!error) {
-    console.log(tweet);
-  }
-});*/
-
 });
 }
 
