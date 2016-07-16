@@ -38,7 +38,8 @@ client.get('statuses/user_timeline', params, function(error, tweets, response){
         return;
     }
 
- 	console.log(data);
+    var music = data;
+ 	  console.log(music);
 
 
 });
